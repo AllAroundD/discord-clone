@@ -34,7 +34,7 @@ function Sidebar() {
 
             <div className="sidebar__voice">
                 <SignalCellularAltIcon className="sidebar__voiceIcon" fontSize="large" />
-                <div className="sidebar_voiceInfo">
+                <div className="sidebar__voiceInfo">
                     <h3>Voice Connected</h3>
                     <p>Stream</p>
                 </div>
