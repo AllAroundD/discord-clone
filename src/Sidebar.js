@@ -50,13 +50,13 @@ function Sidebar() {
             </div>
 
             <div className="sidebar__profile">
-                <Avatar src="https://avatars3.githubusercontent.com/u/64918107?s=460&u=4277fa2bf868713adec524f08700cee517941e82&v=4" />
+                <Avatar src="https://cdn.discordapp.com/avatars/383469567030067231/c1891754f4db4d7e41d91f21d89d7946.png" />
                 <div className="sidebar__profileInfo">
                     <h3>Foreigner</h3>
                     <p>#thisIsMyID</p>
                 </div>
 
-                <div className="sidebar_profileIcons">
+                <div className="sidebar__profileIcons">
                     <MicIcon />
                     <HeadsetIcon />
                     <SettingsIcon />
