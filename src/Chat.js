@@ -11,6 +11,8 @@ import { selectChannelId, selectChannelName } from './features/appSlice';
 import { selectUser } from './features/userSlice';
 import db from './firebase'
 import firebase from 'firebase'
+import Tooltip from '@material-ui/core/Tooltip';
+import { makeStyles } from '@material-ui/core/styles';
 
 function Chat() {
     const user = useSelector(selectUser)
@@ -24,7 +26,7 @@ function Chat() {
             db.collection("channels")
             .doc(channelId)
             .collection("messages")
-            .orderBy("timestamp", "desc")
+            .orderBy("timestamp", "asc")
             .onSnapshot((snapshot) => 
                 setMessages(snapshot.docs.map((doc) => doc.data()))
         )
@@ -43,6 +45,22 @@ function Chat() {
 
         setInput("")
     }
+
+    // For the tooltips
+    const useStylesBootstrap = makeStyles((theme) => ({
+        arrow: {
+          color: theme.palette.common.black,
+        },
+        tooltip: {
+          backgroundColor: theme.palette.common.black,
+        },
+      }));
+      
+      function BootstrapTooltip(props) {
+        const classes = useStylesBootstrap();
+      
+        return <Tooltip arrow classes={classes} {...props} />;
+      }
 
     return (
         <div className="chat">
@@ -78,7 +96,9 @@ function Chat() {
                 </form>
 
                 <div className="chat__inputIcons">
-                    <CardGiftcardIcon fontSize="large" />
+                    <BootstrapTooltip title="Upgrade your friends! Give them awesome chat perks with Nitro.">
+                        <CardGiftcardIcon fontSize="large" />
+                    </BootstrapTooltip>
                     <GifIcon fontSize="large" />
                     <EmojiEmotionsIcon fontSize="large" />
                 </div>

@@ -13,6 +13,9 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import db, { auth } from './firebase';
+import Tooltip from '@material-ui/core/Tooltip';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 function Sidebar() {
     const user = useSelector(selectUser);
@@ -38,7 +41,22 @@ function Sidebar() {
             })
         }
     }
-    
+
+    // for the tooltips
+    const useStylesBootstrap = makeStyles((theme) => ({
+        arrow: {
+          color: theme.palette.common.black,
+        },
+        tooltip: {
+          backgroundColor: theme.palette.common.black,
+        },
+    }));
+      
+    function BootstrapTooltip(props) {
+        const classes = useStylesBootstrap();
+        return <Tooltip arrow classes={classes} {...props} />;
+    }
+
     return (
         <div className="sidebar">
             <div className="sidebar__top">
@@ -70,8 +88,12 @@ function Sidebar() {
                 </div>
 
                 <div className="sidebar__voiceIcons">
-                    <InfoOutlinedIcon />
-                    <CallIcon />
+                    <BootstrapTooltip title="Call Info">
+                        <InfoOutlinedIcon />
+                    </BootstrapTooltip>
+                    <BootstrapTooltip title="Hang Up">
+                        <CallIcon />
+                    </BootstrapTooltip>
                 </div>
             </div>
 
@@ -79,16 +101,20 @@ function Sidebar() {
                 {/* <Avatar src="https://cdn.discordapp.com/avatars/383469567030067231/c1891754f4db4d7e41d91f21d89d7946.png" /> */}
                 <Avatar onClick={() => auth.signOut() } src={user.photo} />
                 <div className="sidebar__profileInfo">
-                    {/* <h3>Foreigner</h3> */}
                     <h3>{user.displayName}</h3>
-                    {/* <p>#thisIsMyID</p> */}
                     <p>#{user.uid.substring(0, 5)}</p>
                 </div>
 
                 <div className="sidebar__profileIcons">
-                    <MicIcon />
-                    <HeadsetIcon />
-                    <SettingsIcon />
+                    <BootstrapTooltip title="Unmute">
+                        <MicIcon />
+                    </BootstrapTooltip>
+                    <BootstrapTooltip title="Deafen">
+                        <HeadsetIcon />
+                    </BootstrapTooltip>
+                    <BootstrapTooltip title="User Settings">
+                        <SettingsIcon />
+                    </BootstrapTooltip>
                 </div>
             </div>
         </div>

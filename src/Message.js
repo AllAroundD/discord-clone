@@ -3,6 +3,7 @@ import './Message.css'
 import { Avatar } from '@material-ui/core'
 
 function Message({timestamp, user, message}) {
+
     return (
         <div className='message'>
             <Avatar src={user.photo} />
