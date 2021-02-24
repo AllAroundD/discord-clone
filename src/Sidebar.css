@@ -58,7 +58,8 @@
   align-items: center;
 }
 
-.sidebar__voice, .sidebar__profile {
+.sidebar__voice,
+.sidebar__profile {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,22 +78,26 @@
   color: #4fb185;
 }
 
-.sidebar__voiceInfo>h3 {
+.sidebar__voiceInfo > h3 {
   color: #4fb185;
 }
 
-.sidebar__voiceInfo>p {
+.sidebar__voiceInfo > p {
   font-size: smaller;
 }
 
-.sidebar__voiceIcons>.MuiSvgIcon-root {
+.sidebar__voiceIcons > .MuiSvgIcon-root {
   padding: 10px;
   border-radius: 5px;
 }
 
-.sidebar__voiceIcons>.MuiSvgIcon-root:hover {
+.sidebar__voiceIcons > .MuiSvgIcon-root:hover {
   color: white;
   background-color: #40464b;
+}
+
+.sidebar__profile > .sidebar__photo {
+  cursor: pointer;
 }
 
 .sidebar__profileInfo {
@@ -100,16 +105,16 @@
   padding: 10px;
 }
 
-.sidebar__profileInfo>h3 {
+.sidebar__profileInfo > h3 {
   color: white;
 }
 
-.sidebar__profileIcons>.MuiSvgIcon-root {
+.sidebar__profileIcons > .MuiSvgIcon-root {
   padding: 10px;
   border-radius: 5px;
 }
 
-.sidebar__profileIcons>.MuiSvgIcon-root:hover {
+.sidebar__profileIcons > .MuiSvgIcon-root:hover {
   color: white;
   background-color: #40464b;
 }
