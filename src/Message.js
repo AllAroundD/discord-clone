@@ -1,24 +1,27 @@
-import React from 'react'
-import './Message.css'
-import { Avatar } from '@material-ui/core'
+import React from "react";
+import "./Message.css";
+import { Avatar } from "@material-ui/core";
 
-function Message({timestamp, user, message}) {
+function Message({ timestamp, user, message }) {
+  return (
+    <div className="message">
+      <Avatar src={user.photo} />
+      <div className="message__info">
+        <h4>
+          {user.displayName}
+          <span className="message__timestamp">
+            {/* {new Date(timestamp?.toDate()).toUTCString()} */}
+            {new Date(timestamp?.toDate()).toLocaleDateString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+            })}
+          </span>
+        </h4>
 
-    return (
-        <div className='message'>
-            <Avatar src={user.photo} />
-            <div className="message__info">
-                <h4>
-                    {user.displayName}
-                    <span className="message__timestamp">
-                        {new Date(timestamp?.toDate()).toUTCString()}
-                    </span>
-                </h4>
-
-                <p>{message}</p>
-            </div>
-        </div>
-    )
+        <p>{message}</p>
+      </div>
+    </div>
+  );
 }
 
-export default Message
+export default Message;
